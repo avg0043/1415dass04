@@ -20,6 +20,7 @@
 package lanSimulation;
 
 import lanSimulation.internals.*;
+
 import java.util.Hashtable;
 import java.util.Enumeration;
 import java.io.*;
@@ -188,7 +189,7 @@ public class Network {
 			return false;
 		}
 		; // not all workstations are registered
-		// all verifications succeedeed
+			// all verifications succeedeed
 		return true;
 	}
 
@@ -360,11 +361,7 @@ public class Network {
 								endPos);
 					}
 					;
-					report.write("\tAccounting -- author = '");
-					report.write(author);
-					report.write("' -- title = '");
-					report.write(title);
-					report.write("'\n");
+					printAccounting(report, author, title);
 					report.write(">>> Postscript job delivered.\n\n");
 					report.flush();
 				} else {
@@ -373,11 +370,7 @@ public class Network {
 						author = document.message_.substring(8, 16);
 					}
 					;
-					report.write("\tAccounting -- author = '");
-					report.write(author);
-					report.write("' -- title = '");
-					report.write(title);
-					report.write("'\n");
+					printAccounting(report, author, title);
 					report.write(">>> ASCII Print job delivered.\n\n");
 					report.flush();
 				}
@@ -397,6 +390,27 @@ public class Network {
 			;
 			return false;
 		}
+	}
+
+	/**
+	 * Writes accounting.
+	 * 
+	 * @param report
+	 *            Writer
+	 * @param author
+	 *            accounting author
+	 * @param title
+	 *            accounting title
+	 * @throws IOException
+	 *             exception.
+	 */
+	private void printAccounting(Writer report, String author, String title)
+			throws IOException {
+		report.write("\tAccounting -- author = '");
+		report.write(author);
+		report.write("' -- title = '");
+		report.write(title);
+		report.write("'\n");
 	}
 
 	/**
