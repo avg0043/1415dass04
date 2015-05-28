@@ -159,7 +159,7 @@ Construct a <em>Node</em> with given #type and #name, and which is linked to #ne
 	 * Prints node information.
 	 * @param buf Buffer
 	 */
-	public void printNodeInformation(StringBuffer buf) {
+	public void printOn(StringBuffer buf) {
 		switch (type_) {
 		case Node.NODE:
 			buf.append("Node ");
@@ -190,7 +190,7 @@ Construct a <em>Node</em> with given #type and #name, and which is linked to #ne
 	 * @param buf
 	 *            Buffer.
 	 */
-	public void printXMLNodeInformation(StringBuffer buf) {
+	public void printXMLOn(StringBuffer buf) {
 		switch (type_) {
 		case Node.NODE:
 			buf.append("<node>");
