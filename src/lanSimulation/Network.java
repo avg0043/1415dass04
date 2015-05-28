@@ -225,7 +225,7 @@ public class Network {
 				report.write("\tNode '");
 				report.write(currentNode.name_);
 				report.write("' accepts broadcase packet.\n");
-				printLogging(report, currentNode);
+				currentNode.printLogging(report);
 			} catch (IOException exc) {
 				// just ignore
 			}
@@ -288,7 +288,7 @@ public class Network {
 		startNode = (Node) workstations_.get(workstation);
 
 		try {
-			printLogging(report, startNode);
+			startNode.printLogging(report);
 		} catch (IOException exc) {
 			// just ignore
 		}
@@ -297,7 +297,7 @@ public class Network {
 		while ((!packet.destination_.equals(currentNode.name_))
 				& (!packet.origin_.equals(currentNode.name_))) {
 			try {
-				printLogging(report, currentNode);
+				currentNode.printLogging(report);
 			} catch (IOException exc) {
 				// just ignore
 			}
@@ -320,23 +320,6 @@ public class Network {
 		}
 
 		return result;
-	}
-
-	/**
-	 * Prints logging.
-	 * 
-	 * @param report
-	 *            Writer
-	 * @param startNode
-	 *            Nodo de inicio
-	 * @throws IOException
-	 *             excepción.
-	 */
-	private void printLogging(Writer report, Node startNode) throws IOException {
-		report.write("\tNode '");
-		report.write(startNode.name_);
-		report.write("' passes packet on.\n");
-		report.flush();
 	}
 
 	private boolean printDocument(Node printer, Packet document, Writer report) {
