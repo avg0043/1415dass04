@@ -66,7 +66,6 @@ public class Node {
 	 */
 	public Node(byte type, String name) {
 		assert (type >= NODE) & (type <= PRINTER);
-		type_ = type;
 		name_ = name;
 		nextNode_ = null;
 	}
@@ -80,7 +79,6 @@ public class Node {
 	 */
 	public Node(byte type, String name, Node nextNode) {
 		assert (type >= NODE) & (type <= PRINTER);
-		type_ = type;
 		name_ = name;
 		nextNode_ = nextNode;
 	}
