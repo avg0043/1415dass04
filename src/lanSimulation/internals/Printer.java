@@ -16,7 +16,7 @@ public class Printer extends Node {
 		super(type, name, nextNode);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public boolean printDocument(Network network, Packet document, Writer report) {
 		String author = "Unknown";
@@ -63,6 +63,32 @@ public class Printer extends Node {
 		}
 		;
 		return true;
+	}
+
+	/**
+	 * Prints node information.
+	 * 
+	 * @param buf
+	 *            Buffer
+	 */
+	@Override
+	public void printOn(StringBuffer buf) {
+		buf.append("Printer ");
+		buf.append(name_);
+		buf.append(" [Printer]");
+	}
+
+	/**
+	 * Prints node information in XML.
+	 * 
+	 * @param buf
+	 *            Buffer.
+	 */
+	@Override
+	public void printXMLOn(StringBuffer buf) {
+		buf.append("<printer>");
+		buf.append(name_);
+		buf.append("</printer>");
 	}
 
 }
