@@ -44,10 +44,6 @@ public class Node {
 	public static final byte PRINTER = 2;
 
 	/**
-	 * Holds the type of the Node.
-	 */
-	public byte type_;
-	/**
 	 * Holds the name of the Node.
 	 */
 	public String name_;
